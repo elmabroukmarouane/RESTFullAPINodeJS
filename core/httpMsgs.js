@@ -10,5 +10,14 @@ exports.show500 = function (request, response, error) {
         // JSON Error Return
         response.writeHead(500, 'Internal Error Occurred', { 'Content-Type': 'application/json' });
         response.write(JSON.stringify({ data: 'Error Occurred : ' + error }));
-    } 
+    }
+    response.end(); 
 };
+
+exports.sendJSON = function (request, response, data) {
+    response.writeHead(200, { 'Content-Type': 'application/json' });
+    if (data) {
+        response.write(JSON.stringify(data));
+    }
+    response.end(); 
+}

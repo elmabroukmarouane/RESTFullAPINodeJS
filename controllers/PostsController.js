@@ -10,10 +10,8 @@ exports.getList = function (request, response) {
         }   
         else
         {
-            response.writeHead(200, { 'Content-Type': 'application/json' });
-            response.write(JSON.stringify(data));
+            httpMsgs.sendJSON(request, response, data);
         }
-        response.end(); 
     });
 };
 
